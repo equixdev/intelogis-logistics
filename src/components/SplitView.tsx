@@ -11,6 +11,7 @@ interface SplitViewProps {
 const LeftPane: React.FunctionComponent<{
   leftWidth: number | undefined
   setLeftWidth: (value: number) => void
+  children?: React.ReactNode
 }> = ({ children, leftWidth, setLeftWidth }) => {
   const leftRef = createRef<HTMLDivElement>()
 

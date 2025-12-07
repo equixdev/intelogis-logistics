@@ -13,22 +13,18 @@ export const Sidebar = () => {
   const filterOffersByCityName = offers.filter(offer => 
     (getCity(offer.originId)?.name.includes(originCityName) && getCity(offer.destinationId)?.name.includes(destinationCityName)))
 
+  const cityOptions = cities.map(city => ({ label: city.name, value: city.name }))
+
   return (
     <Layout.Sider>
       <div>
         <label>
           <Typography.Text style={{ marginBottom: '.5rem' }}>Точка погрузки</Typography.Text>
-          <Select value={originCityName} onChange={(value) => setOriginCityName(value)}>
-            <Select.Option value="" selected>Любой город</Select.Option>
-            {cities.map(city => <Select.Option key={city.id} value={city.name}>{city.name}</Select.Option>)}
-          </Select>
+          <Select value={originCityName || undefined} onChange={(value) => setOriginCityName(value || '')} options={[{ label: 'Любой город', value: '' }, ...cityOptions]} />
         </label>
         <label>
           <Typography.Text style={{ marginBottom: '.5rem' }}>Точка разгрузки</Typography.Text>
-          <Select value={destinationCityName} onChange={(value) => setDestinationCityName(value)}>
-            <Select.Option value="" selected>Любой город</Select.Option>
-            {cities.map(city => <Select.Option key={city.id} value={city.name}>{city.name}</Select.Option>)}
-          </Select>
+          <Select value={destinationCityName || undefined} onChange={(value) => setDestinationCityName(value || '')} options={[{ label: 'Любой город', value: '' }, ...cityOptions]} />
         </label>
       </div>
       <Menu>

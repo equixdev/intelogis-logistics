@@ -1,4 +1,3 @@
-import { City, Offer } from "../types"
 import { configureStore } from "@reduxjs/toolkit"
 import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux'
 import { AppDispatch, RootState } from '../types'

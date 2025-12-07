@@ -1,4 +1,3 @@
-import { Layout } from "antd"
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet"
 import { useAppSelector } from "../store"
 import Leaflet, { LatLngExpression } from 'leaflet'
@@ -37,7 +36,7 @@ export const Map = () => {
   const RouteBuilder = createControlComponent(RouterBuilderMachine)
 
   return (
-      <MapContainer fitBounds={mapBounds} center={mapCenter} zoom={4}>
+      <MapContainer bounds={mapBounds} center={mapCenter} zoom={4} style={{ height: '100%', width: '100%' }}>
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

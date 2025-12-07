@@ -1,11 +1,10 @@
-import React, { createRef, useEffect, useState } from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react'
+import { createRoot } from 'react-dom/client'
 import './index.css'
 import { Provider } from 'react-redux'
 import 'leaflet/dist/leaflet.css'
-import 'antd/dist/antd.css'
+import 'antd/dist/reset.css'
 import { store } from './store'
-import { Layout } from 'antd'
 import offers from './offers.json'
 import { selectOffer, useAppDispatch } from './store'
 import { Sidebar } from './components/Sidebar'
@@ -20,11 +19,14 @@ const App = () => {
   )
 }
 
-ReactDOM.render(
-  <React.StrictMode>
-    <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
-  document.getElementById('root')
-)
+const container = document.getElementById('root')
+if (container) {
+  const root = createRoot(container)
+  root.render(
+    <React.StrictMode>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </React.StrictMode>
+  )
+}
