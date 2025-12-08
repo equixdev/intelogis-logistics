@@ -1,6 +1,6 @@
 # Intelogis Logistics
 
-![Screenshot](screenshot1.png)
+![Screenshot](screenshot.png)
 
 A logistics and route planning application built with:
 - React
